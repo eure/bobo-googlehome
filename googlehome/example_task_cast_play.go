@@ -2,7 +2,6 @@ package googlehome
 
 import (
 	"errors"
-	"sync"
 
 	"github.com/evalphobia/google-home-client-go/googlehome"
 )
@@ -36,15 +35,4 @@ func (t castPlayTask) Run() error {
 	}
 
 	return t.client.Notify(t.text)
-}
-
-var ghOnce sync.Once
-var globalClient *googlehome.Client
-
-func getGlobalClient() (*googlehome.Client, error) {
-	var err error
-	ghOnce.Do(func() {
-		globalClient, err = googlehome.NewClient()
-	})
-	return globalClient, err
 }

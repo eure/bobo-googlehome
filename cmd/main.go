@@ -24,6 +24,7 @@ func main() {
 			command.HelpCommand,
 			googlehome.SayCommand,
 			googlehome.VolumeCommand,
+			googlehome.ReloadCommand,
 		),
 	})
 }
